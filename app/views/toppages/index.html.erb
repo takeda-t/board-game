@@ -1,6 +1,13 @@
-<div class="mx-aout jumbotron">
-    <div class="text-center">
-        <h1>Wellcome to BoardGames</h1>
-        <%= link_to "Sign up!", signup_path, class: "btn btn-lg btn-primary" %>
+<% if logged_in? %>
+    <div>
+        <h1>ログイン後のページ</h1>
     </div>
-</div>
+<% else %>
+    <div class="mx-aout jumbotron">
+        <div class="text-center">
+            <h1>Wellcome to BoardGames</h1>
+            <%= link_to "Sign up!", signup_path, class: "btn btn-lg btn-primary" %>
+        </div>
+    </div>
+<% end %>
+
