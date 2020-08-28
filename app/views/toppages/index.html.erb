@@ -1,7 +1,5 @@
 <% if logged_in? %>
-    <div>
-        <h1>ログイン後のページ</h1>
-    </div>
+    <%=  render "groups/groups", groups: @groups %>
 <% else %>
     <div class="mx-aout jumbotron">
         <div class="text-center">
