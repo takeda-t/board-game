@@ -11,6 +11,7 @@ class GroupsController < ApplicationController
     @group = current_user.groups.build(group_params)
     
     if @group.save
+      current_user.participate(@group)
       flash[:success] = "グループを作成しました。"
       redirect_to @group
     else

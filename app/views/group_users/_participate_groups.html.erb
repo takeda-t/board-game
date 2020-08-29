@@ -1,0 +1,24 @@
+<ul class="list-group list-unstyled">
+    <% user.participates.each do |group| %>
+        <li class="mt-5">
+            <%= link_to group, class: "row" do %>
+                <div class="col-sm-4 card" style="">
+                    <img class="align-self-center mr-2" src="<%= gravatar_url(group.user, { size: 50 } ) %>" alt="">
+                    <div class="card-body">
+                        <h4 class="card-text"><%= group.user.name %></h4>
+                    </div>
+                </div>
+                            
+                <div class="col-sm-8">
+                    <ul>
+                        <li><%= group.name %></li>
+                        <li><%= group.schedule %></li>
+                        <li><%= group.place %></li>
+                        <li><%= group.title %></li>
+                        <li><%= group.category %></li>
+                    </ul>
+                </div>
+            <% end %>
+        </li>
+    <% end %>
+</ul>

@@ -4,8 +4,10 @@
             <img src="<%= gravatar_url(@group.user, { size: 80 }) %>" class="mr-2" alt="">
             <div class="card-body">
                 <h4><%= @group.user.name %></h4>
+                <%= render "group_users/participate_button", group: @group %>
             </div>
         </div>
+        
         <div class="offset-sm-1 col-sm-8" style="background-color: #eee">
             <p>グループの情報一覧</p>
         </div>
@@ -13,8 +15,12 @@
     
     <div class="row mt-4">
         <div class="col-sm-3" style="background-color: #eee">
-            <p>グループ参加者一覧</p>
+            <div class="text-center mt-2">
+                <p>参加者一覧</p>
+            </div>
+            <%= render "group_users/participate_users", group: @group %>
         </div>
+        
         <div class="offset-sm-1 col-sm-8" style="background-color: #eee">
             <p>グループチャット欄</p>
         </div>
