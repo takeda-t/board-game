@@ -1,6 +1,6 @@
-<ul class="list-group list-unstyled">
+<ul class="list-group list-unstyled justify-content-center">
     <% user.participates.each do |group| %>
-        <li class="mt-5">
+        <li class="mt-5 bg-light">
             <%= link_to group, class: "row" do %>
                 <div class="col-sm-4 card" style="">
                     <img class="align-self-center mr-2" src="<%= gravatar_url(group.user, { size: 50 } ) %>" alt="">
