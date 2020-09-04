@@ -23,6 +23,16 @@
         
         <div class="offset-sm-1 col-sm-8" style="background-color: #eee">
             <p>グループチャット欄</p>
+            
+            <%= render "messages/group_talk", group: @group %>
+            
+            <div class="container">
+                <%= form_with(model: [@group, @message], method: :post, local: true) do |f| %>
+                    <%= f.text_area :content, class: "form-control", rows: 2 %>
+                    <%= f.hidden_field :group_id, value: @group.id %>
+                    <%= f.submit "コメントする", class: "btn btn-sm btn-primary" %>
+                <% end %>
+            </div>
         </div>
     </div>
 </div>

@@ -7,6 +7,7 @@ class User < ApplicationRecord
     
     has_many :groups
     
+    #グループへの参加機能
     has_many :group_users
     has_many :participates, through: :group_users, source: :group
     
@@ -24,4 +25,8 @@ class User < ApplicationRecord
     def participate?(group)
       self.participates.include?(group)
     end
+    
+    #メッセージに関する機能
+    has_many :messages
+    has_many :speach, through: :messages
 end

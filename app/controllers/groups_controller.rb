@@ -1,6 +1,10 @@
 class GroupsController < ApplicationController
+  before_action :require_user_logged_in
+  
   def show
     @group = Group.find(params[:id])
+    @messages = @group.messages
+    @message = current_user.messages.build
   end
   
   def new

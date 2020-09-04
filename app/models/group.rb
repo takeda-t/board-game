@@ -9,4 +9,7 @@ class Group < ApplicationRecord
   
   has_many :group_users
   has_many :accept, through: :group_users, source: :user
+  
+  has_many :messages
+  has_many :group_talk, through: :messages
 end
