@@ -8,13 +8,11 @@ Rails.application.routes.draw do
   get "signup", to: "users#new"
   resources :users, only: [:show, :create]
   
-  resources :groups, only: [:index, :show, :new, :creat] do
-    resources :messages, only: [:create, :update]
+  resources :groups, only: [:show, :new, :create] do
+    resources :messages, only: [:create]
   end
   
   resources :group_users, only: [:create, :destroy]
-  
-  resources :messages, only: [:create, :destroy]
   
   get "search", to: "toppages#index"
 end
