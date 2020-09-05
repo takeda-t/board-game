@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "signup", to: "users#new"
   resources :users, only: [:show, :create]
   
-  resources :groups, only: [:show, :new, :creat] do
+  resources :groups, only: [:index, :show, :new, :creat] do
     resources :messages, only: [:create, :update]
   end
   
@@ -16,5 +16,5 @@ Rails.application.routes.draw do
   
   resources :messages, only: [:create, :destroy]
   
-  #post 'groups/:id', to: 'messages#create'
+  get "search", to: "toppages#index"
 end
