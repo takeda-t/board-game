@@ -9,22 +9,34 @@
         </div>
         
         <div class="offset-sm-1 col-sm-8" style="background-color: #eee">
-            <p>グループの情報一覧</p>
+            <h4 class="text-center my-2">グループの情報一覧</h4>
+            <div class="row bg-white mx-1 my-2">
+                <p class="offset-sm-1 my-1">グループ名：<%= @group.name %></p>
+            </div>
+            <div class="row bg-white mx-1 my-2">
+                <p class="col-sm-4 offset-sm-1 my-1">開催日：<%= @group.schedule %></p>
+                <p class="col-sm-4 offset-sm-1 my-1">場所：<%= @group.place %></p>
+            </div>
+            <div class="row bg-white mx-1 my-2">
+                <p class="col-sm-4 offset-sm-1 my-1">ゲームの名前：<%= @group.title %></p>
+                <p class="col-sm-4 offset-sm-1 my-1">ゲームの種類：<%= @group.category %></p>
+            </div>
         </div>
     </div>
     
     <div class="row mt-4">
         <div class="col-sm-3" style="background-color: #eee">
             <div class="text-center mt-2">
-                <p>参加者一覧</p>
+                <h5 class="text-center">参加者一覧</h5>
             </div>
             <%= render "group_users/participate_users", group: @group %>
         </div>
         
         <div class="offset-sm-1 col-sm-8" style="background-color: #eee">
-            <p>グループチャット欄</p>
-            
-            <%= render "messages/group_talk", group: @group %>
+            <h5 class="text-center my-2">グループチャット欄</h5>
+            <div class="container bg-white">
+                <%= render "messages/group_talk", group: @group %>
+            </div>
             
             <div class="container">
                 <%= form_with(model: [@group, @message], method: :post, local: true) do |f| %>
