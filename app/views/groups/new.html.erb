@@ -34,7 +34,11 @@
             
             <div class="form-group">
                 <%= f.label :category, "ゲームの種類" %>
-                <%= f.text_field :category, class: "form-control" %>
+                <%= f.select :category,
+                    { "選択":1, "ブラフ":2, "正体隠匿":3, "タイル配置":4, "拡大再生産":5, "ドラフト":6, "ワーカープレイスメント":7,
+                      "陣取り":8, "デッキ構築":9, "競り":10, "協力":11, "表現":12, "アクション":13,
+                    },
+                class: "form-control" %>
             </div>
             
             <%= f.submit "新規作成", class: "btn btn-block btn-primary" %>

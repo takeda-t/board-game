@@ -1,9 +1,11 @@
 <ul class="list-group list-group-flash">
     <% group.accept.each do |user| %>
+        <%= link_to user do %>
         <li class="list-group-item mb-3">
-            <div>
-                <%= link_to user.name, user_path(user) %>
+            <div class="text-center, text-dark">
+                <%= user.name %>
             </div>
         </li>
+        <% end %>
     <% end %>
 </ul>
