@@ -3,7 +3,7 @@ class GroupsController < ApplicationController
   
   def show
     @group = Group.find(params[:id])
-    @messages = @group.messages
+    @messages = @group.messages.page(params[:page]).per(10)
     @message = current_user.messages.build
   end
   

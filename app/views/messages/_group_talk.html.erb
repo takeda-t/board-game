@@ -1,16 +1,17 @@
 <div class="container">
     <ul class="list-unstyled">
         <% group.messages.each do |message| %>
-            <li class="bg-light mb-2">
+            <li class="bg-light my-2 rounded">
                 <div class="row">
-                    <div class="col-sm-1">
+                    <div class="col-sm-1 offset-sm-1">
                         <p><%= message.user.name %></p>
                     </div>
-                    <div class="offset-sm-1 col-sm-10">
+                    <div class="offset-sm-1 col-sm-8">
                         <p><%= message.content %></p>
                     </div>
                 </div>
             </li>
         <% end %>
+        <%= paginate @messages %>
     </ul>
 </div>

@@ -34,15 +34,17 @@
         
         <div class="offset-sm-1 col-sm-8" style="background-color: #eee">
             <h5 class="text-center my-2">グループチャット欄</h5>
-            <div class="container bg-white">
+            <div class="container bg-white py-2">
                 <%= render "messages/group_talk", group: @group %>
             </div>
             
-            <div class="container">
+            <div class="container my-2">
                 <%= form_with(model: [@group, @message], method: :post, local: true) do |f| %>
                     <%= f.text_area :content, class: "form-control", rows: 2 %>
                     <%= f.hidden_field :group_id, value: @group.id %>
-                    <%= f.submit "コメントする", class: "btn btn-sm btn-primary" %>
+                    <div class="text-right mt-1">
+                        <%= f.submit "コメントする", class: "btn btn-sm btn-primary" %>
+                    </div>
                 <% end %>
             </div>
         </div>
