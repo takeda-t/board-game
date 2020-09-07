@@ -2,10 +2,16 @@ class Group < ApplicationRecord
   
   belongs_to :user
   validates :name, presence: true, length: { maximum: 50 }
-  validates :schedule, presence: true
   validates :place, presence: true, length: { maximum: 50 }
   validates :title, presence: true, length: { maximum: 50 }
   validates :category, presence: true, length: { maximum: 50 }
+  validate :schedule_not_before
+  
+  def schedule_not_before
+    if schedule.nil? || schedule < Date.today 
+      errors.add(:schedule, "開催日は今日以降のものを選んでください")
+    end
+  end
   
   has_many :group_users
   has_many :accept, through: :group_users, source: :user

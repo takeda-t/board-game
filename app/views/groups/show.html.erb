@@ -40,15 +40,8 @@
             
             <div class="container my-2">
                 <%= form_with(model: [@group, @message], method: :post, local: true) do |f| %>
-                    <% if message.errors.any? %>
-                        <div id="error_explanation">
-                            <ul>
-                                <% message.errors.full_messages.each do |msg| %>
-                                    <li><%= msg %></li>
-                                <% end %>
-                            </ul>
-                        </div>
-                    <% end %>
+                    <%= render "layouts/error_messages", model: f.object %>
+                    
                     <%= f.text_area :content, class: "form-control", rows: 2 %>
                     <%= f.hidden_field :group_id, value: @group.id %>
                     <div class="text-right mt-1">
